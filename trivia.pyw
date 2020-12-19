@@ -9,20 +9,6 @@ import threading
 FONT = QFont('Arial', 14)
 
 QUIZ_ANSWERS = {
-    "English Punctuation Trivia": [
-        ["Where does the period go in a sentence?", "At the end"],
-        ["What is the apostrophe's main function?", "Show ownership or posession"],
-        ["Which sentence uses a semi-colon correctly?", "I set out on a quest; the enemies looked fierce."],
-        ["Which sentence below uses a comma correctly?", "Before you begin, let us learn to play."],
-        ["An exclamation mark is often used to express what?", "Excitement"],
-        ["Which sentence correctly uses an apostrophe?", "The horse's tail is so pretty."],
-        ["Which sentence below uses a comma(s) correctly?", "Megan who lives next door, loves dogs."],
-        ["Which sentence correctly uses an apostrophe?", "I can't do it, because it is too hard."],
-        ["A semi-colon is primarily used to:", "Connect two unrelated phrases"],
-        ["Quotation marks are used to do what?", "Show speech"],
-        ["A period is also used to __________ words.", "Abbreviate"],
-        ["Which sentence uses quotation marks correctly?", "Sally said, \"It's time to cook dinner.\""],
-    ],
     "Advanced Spelling": [
         ["Which word is spelled correctly?", "autochthonous"],
         ["Which word is spelled correctly?", "Czechoslovakia"],
@@ -813,7 +799,7 @@ class mainWindowWidget(QMainWindow):
         
         
         minx = 200
-        miny = 20 * 5 + 15
+        miny = 20 * 6 + 15
         self.setMinimumSize(minx, miny)
         self.resize(1000, miny + 40)
         
@@ -824,7 +810,7 @@ class mainWindowWidget(QMainWindow):
         self.count.setFixedSize(self.width(), 20)
         self.quiz.setFixedSize(self.width(), 20)
         self.answer_label.setFixedSize(self.width(), 20)
-        self.answer.setFixedSize(self.width(), self.height() - 80)
+        self.answer.setFixedSize(self.width(), self.height() - 100)
     
     def update(self, txt):
         txt = ' '.join(txt.rstrip().split())
