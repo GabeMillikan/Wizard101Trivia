@@ -26,9 +26,15 @@ Easily answer wizard101 trivia questions
     - python -m pip install pyautogui
     - python -m pip install PyQt5
 6. Download the file in this github page and save it as "trivia.pyw"
-    - Here's a direct link to the code: 
+    - Here's a direct link to the code: https://raw.githubusercontent.com/GabeMillikan/Wizard101Trivia/main/trivia.pyw
+    - You may just right click and press "Save" once you're at the above link
+    - Otherwise, create a file named "trivia.pyw" on your computer, then edit it with a text editor (ex: notepad) and copy/paste the whole code into it
+    - Be careful to make sure that the file is called "trivia.pyw" and not "trivia.pyw.txt" or "trivia.pyw.py"
+7. Double click the file, or open it with python (which was installed in step 2)
+    - If the window does not open, or something does not work, feel free to message me.
 
 # How to Use
+1. 
 
 # Supported Quizzes (as of December 19, 2020)
  * Supported very well:
