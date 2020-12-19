@@ -1,5 +1,6 @@
 # Wizard101Trivia
 Easily answer wizard101 trivia questions
+
 <img alt="preview" src="https://i.imgur.com/S8Wvay8.gif">
 
 # Notes
