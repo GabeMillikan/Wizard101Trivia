@@ -1,5 +1,6 @@
 # Wizard101Trivia
 Easily answer wizard101 trivia questions
+<img alt="preview" src="https://i.imgur.com/S8Wvay8.gif">
 
 # Notes
 - I wrote this program in October, and am only publishing it on GitHub now in december
@@ -34,7 +35,10 @@ Easily answer wizard101 trivia questions
     - If the window does not open, or something does not work, feel free to message me.
 
 # How to Use
-1. 
+1. Run the program
+2. Go to your favorite Wizard101 trivia from the supported list below
+3. Copy the question (or enable Auto Spam Ctrl+C and just highlight it)
+4. Select the answer provided
 
 # Supported Quizzes (as of December 19, 2020)
  * Supported very well:
