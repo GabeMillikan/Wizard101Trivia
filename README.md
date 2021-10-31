@@ -33,7 +33,7 @@ Easily answer wizard101 trivia questions
     - You should see the window at this point! If you don't, then something is wrong and feel free to message me.
 
 # Supported Quizzes (as of October 31, 2021)
-## Some quizzes might be missing an answer or two, I would love it if you could message me what they are and what the answer was so I can fix it!
+## There may be some missing answers, please message me and let me know so I can add them!
  * Supported very well:
      - World Capitals
      - Weather
