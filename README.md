@@ -1,7 +1,7 @@
 # Wizard101Trivia
 Easily answer wizard101 trivia questions
 
-<img alt="preview" src="https://i.imgur.com/GBFuN5m.mp4">
+<img alt="preview" src="https://github.com/GabeMillikan/Wizard101Trivia/blob/main/preview.gif">
 
 # How to Use
 1. Download the program (detailed in the next section)
