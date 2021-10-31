@@ -508,6 +508,7 @@ QUIZ_ANSWERS = {
         ["What is the state animal of Nevada?", "Desert Bighorn Sheep"],
         ["What is the state animal of New Jersey?", "Horse"],
         ["What is the state animal of New Mexico?", "Black Bear"],
+        ["What is the state animal of New York?", "Beaver"],
         ["What is the state animal of Ohio?", "White-Tailed Deer"],
         ["What is the state animal of Oregon?", "Beaver"],
         ["What is the state animal of Pennsylvania?", "White-Tailed Deer"],
