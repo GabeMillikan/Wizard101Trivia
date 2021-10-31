@@ -786,8 +786,6 @@ description.grid(row = 0, sticky = "w")
 
 autocopy = ttk.Checkbutton(master = top_frame, text = "Automatically copy selected text.", takefocus=0)
 autocopy.grid(row = 1, sticky = "w")
-while "selected" not in autocopy.state():
-    autocopy.invoke()
 
 top_frame.grid(column = 0, sticky = "w", padx = 8, pady = 8)
 
@@ -802,6 +800,14 @@ output.grid(column = 0, row = 2, sticky = tk.W, padx = 8, pady = 8)
 '''
     THE AUTO-COPY AND SEARCH ALGO
 '''
+
+# cycle through until autocopy is on
+while "selected" not in autocopy.state():
+    autocopy.invoke()
+
+# then turn it off
+autocopy.invoke()
+
 def periodic(ms = 1000):
     def inner(func):
         def f():
