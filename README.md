@@ -32,6 +32,9 @@ Easily answer wizard101 trivia questions
 7. Double click the file to run it. You might have to choose to open it with Python which was installed in step 2.
     - You should see the window at this point! If you don't, then something is wrong and feel free to message me.
 
+# Will I get banned?
+Unlikely, but I won't make any guarantees. From Kingsisle's perspective, you're just pressing ctrl-c, then choosing an answer. It will be difficult for them to distinguish between this program and just Googling the answers. **If you enable "Automatically copy selected text", then the program will press ctrl-c 20 times every second**. It's entirely possible for KI to detect this, so I give you fair warning. I don't think that they *will* do anything about it though, since it's probably not worth their time. If you want to be extra cautious, then disable the option and just manually copy the question yourself.
+
 # Supported Quizzes (as of October 31, 2021)
 ## There may be some missing answers, please message me and let me know so I can add them!
  * Supported very well:
