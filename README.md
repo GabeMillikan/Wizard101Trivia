@@ -1,7 +1,7 @@
 # Wizard101Trivia
 Easily answer wizard101 trivia questions
 
-<img alt="preview" src="https://i.imgur.com/S8Wvay8.gif">
+<img alt="preview" src="https://i.imgur.com/GBFuN5m.mp4">
 
 # Notes
 - I wrote this program in October, and am only publishing it on GitHub now in december
