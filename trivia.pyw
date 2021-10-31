@@ -758,6 +758,14 @@ QUIZZES = {
 '''
     IMPORTS
 '''
+
+# attempt to fix pyautogui DPI fuckery that messes with the buttons
+try:
+    import ctypes
+    ctypes.windll.shcore.SetProcessDpiAwareness(ctypes.c_int(0))
+except:
+    pass
+
 import tkinter as tk
 from tkinter import ttk
 import pyperclip, threading, pyautogui
@@ -802,7 +810,7 @@ def periodic(ms = 1000):
         f()
     
     return inner
-    
+
 @periodic(ms = 50)
 def copytext():
     if "selected" not in autocopy.state():
