@@ -1,14 +1,11 @@
-import pyautogui
-import pyperclip
-import time
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-import threading
-
-FONT = QFont('Arial', 14)
-
-QUIZ_ANSWERS = {
+'''
+    THE ANSWERS
+    
+    It is very easy to add a new quiz, or to add a question that was missing!
+    There's no catch, just copy paste an existing quiz then edit the questions/answers.
+    Make sure to follow the format exactly, with commas all in the right places.
+'''
+QUIZZES = {
     "Advanced Spelling": [
         ["Which word is spelled correctly?", "autochthonous"],
         ["Which word is spelled correctly?", "Czechoslovakia"],
@@ -23,7 +20,7 @@ QUIZ_ANSWERS = {
         ["Which word is spelled correctly?", "prospicience"],
         ["Which word is spelled correctly?", "smaragdine"],
         ["Which word is spelled correctly?", "spoliator"],
-        ["Which word is spelled correctly?", "vivisepulture"]
+        ["Which word is spelled correctly?", "vivisepulture"],
     ],
     "American Presidents": [
         ["Who was the 1st president of the United States?", " George Washington"],
@@ -69,7 +66,7 @@ QUIZ_ANSWERS = {
         ["Who was the 41st president of the United States?", "George W. H. Bush"],
         ["Who was the 42nd president of the United States?", "Bill Clinton"],
         ["Who was the 43rd president of the United States?", "George W. Bush"],
-        ["Who was the 44th president of the United States?", "Barack Obama"]
+        ["Who was the 44th president of the United States?", "Barack Obama"],
     ],
     "Ancient Egypt": [
         ["A Pharaoh never let his ______ be seen.", "Hair"],
@@ -89,7 +86,7 @@ QUIZ_ANSWERS = {
         ["Which of the following was a calendar not followed by the Ancient Egyptians?", "Animal Calendar"],
         ["Which of these animals considered sacred by Ancient Egyptians?", "Cat"],
         ["Who is considered to be the first Pharaoh of Egypt?", "King Menes"],
-        ["Who is considered to be the most important Egyptian god?", "Ra"]
+        ["Who is considered to be the most important Egyptian god?", "Ra"],
     ],
     "Apollo Missions": [
         ["In which mission did an astronaut perform a golf shot on the moon?", "Apollo 14"],
@@ -107,7 +104,7 @@ QUIZ_ANSWERS = {
         ["Which mission was the first manned circumlunar flight?", "Apollo 8"],
         ["Which mission was the first manned landing on the moon?", "Apollo 11"],
         ["Which mission was the first night launch?", "Apollo 17"],
-        ["Which was the last Apollo mission?", "Apollo 17"]
+        ["Which was the last Apollo mission?", "Apollo 17"],
     ],
     "Big Cats": [
         ["A cheetah can run up to speeds of ____ miles an hour.", "70"],
@@ -129,7 +126,7 @@ QUIZ_ANSWERS = {
         ["Which of these big cats is an excellent swimmer who loves water?", "Tiger"],
         ["Which of these big cats purrs instead of roars?", "Cheetah"],
         ["Which of these lions are recently extinct?", "Barbary Lion"],
-        ["Which type of tiger is extinct?", "Caspian Tiger"]
+        ["Which type of tiger is extinct?", "Caspian Tiger"],
     ],
     "Book Quotes": [
         ["\"Call me Ishmael.\"", "Moby Dick"],
@@ -147,7 +144,7 @@ QUIZ_ANSWERS = {
         ["\"I was benevolent and good; misery made me a fiend. Make me happy, and I shall again be virtuous.\"", "Frankenstein"],
         ["\"It is to the credit of human nature that, except where its selfishness is brought into play, it loves more readily than it hates.\"", "The Scarlet Letter"],
         ["\"Most people were heartless about turtles because a turtle\"s heart will beat for hours after it has been cut up and butchered. But the old man thought, I have such a heart too.\"", "The Old Man and the Sea"],
-        ["\"Not all those who wander are lost.\"", "The Lord of the Rings"]
+        ["\"Not all those who wander are lost.\"", "The Lord of the Rings"],
     ],
     "Chemical Elements": [
         ["Most of the earth's atmosphere consists of this gas.", "N"],
@@ -169,7 +166,7 @@ QUIZ_ANSWERS = {
         ["Which element has a silver-gray appearance?", "Zn"],
         ["Which of these elements is considered a Metal.", "Fe"],
         ["Which of these elements is NOT considered a Metalloid.", "Sn"],
-        ["Which of these elements is NOT considered a Noble Gas.", "H"]
+        ["Which of these elements is NOT considered a Noble Gas.", "H"],
     ],
     "Constellations": [
         ["Aquila is a constellation named after what bird?", "Eagle"],
@@ -191,7 +188,7 @@ QUIZ_ANSWERS = {
         ["Which constellation can you find M44 or the \"Beehive Cluster\" in?", "Cancer"],
         ["Which constellation holds the brightest star in the north sky?", "Canis Major"],
         ["Which is the brightest star in the Aries constellation?", "Hamal"],
-        ["Which is the brightest star in the Canis Major constellation?", "Sirius"]
+        ["Which is the brightest star in the Canis Major constellation?", "Sirius"],
     ],
     "Dinosaur": [
         ["Dinosaurs belonged to which group of animals?", "Reptiles"],
@@ -213,7 +210,7 @@ QUIZ_ANSWERS = {
         ["Which dinosaur most closely resembles a rhinoceros?", "Triceratops"],
         ["Which of the following was not a flying reptile?", "Stegosaurus"],
         ["Which of these is not a dinosaur?", "Pterodactyl"],
-        ["Who coined the term 'dinosauria?'", "Sir Richard Owen"]
+        ["Who coined the term 'dinosauria?'", "Sir Richard Owen"],
     ],
     "Early American History": [
         ["11 Southern states succeeded from the union in 1860 to form the _________ States of America.", "Confederate"],
@@ -230,7 +227,7 @@ QUIZ_ANSWERS = {
         ["Which early tax act made American settlers very angry pre-revolution?", "Stamp Act of 1765"],
         ["Which natural resource was a large reason many Americans choose to journey westward in the 1800's?", "Gold"],
         ["Which two amendments make up the Reconstruction Acts of 1867 and give African Americans additional freedoms?", "Fourteenth and Fifteenth"],
-        ["Who did the United States purchase Alaska from?", "Russia"]
+        ["Who did the United States purchase Alaska from?", "Russia"],
     ],
     "Eleventh Grade Vocabulary": [
         ["Allegory", "a representation of an abstract or spiritual meaning through concrete or material forms"],
@@ -248,7 +245,7 @@ QUIZ_ANSWERS = {
         ["Euphemism", "the substitution of a mild, indirect, or vague expression for one thought to be offensive, harsh, or blunt"],
         ["Principle", "a fundamental, primary, or general law or truth from which others are derived"],
         ["Procure", "to obtain"],
-        ["Quandary", "a state of perplexity or uncertainty"]
+        ["Quandary", "a state of perplexity or uncertainty"],
     ],
     "English Punctuation": [
         ["A period is also used to __________ words.", "Abbreviate"],
@@ -265,7 +262,7 @@ QUIZ_ANSWERS = {
         ["Which sentence uses quotation marks correctly?", "Sally said, \"It's time to cook dinner.\""],
         ["Which date below uses a comma correctly?", "January 1st, 2014"],
         ["Quotation marks are used to do what?", "Show speech"],
-        ["What is the apostrophe's main function?", "Show ownership or posession"]
+        ["What is the apostrophe's main function?", "Show ownership or posession"],
     ],
     "Famous Authors": [
         ["Who wrote 1984?", "George Orwell"],
@@ -293,7 +290,7 @@ QUIZ_ANSWERS = {
         ["Who wrote Their Eyes Were Watching God?", "Zora Neale Hurston"],
         ["Who wrote Things Fall Apart?", "Chinua Achebe"],
         ["Who wrote To Kill a Mockingbird?", "Harper Lee"],
-        ["Who wrote Watchmen?", "Alan Moore"]
+        ["Who wrote Watchmen?", "Alan Moore"],
     ],
     "Famous Poets": [
         ["Who wrote \"A Dream Within A Dream\"?", "Edgar Allan Poe"],
@@ -310,7 +307,7 @@ QUIZ_ANSWERS = {
         ["Who wrote \"The Road Not Taken\"?", "Robert Frost"],
         ["Who wrote \"There is Another Sky\"?", "Emily Dickinson"],
         ["Who wrote \"To You\"?", "Walt Whitman"],
-        ["Who wrote \"Where the Sidewalk Ends\"?", "Shel Silverstein"]
+        ["Who wrote \"Where the Sidewalk Ends\"?", "Shel Silverstein"],
     ],
     "Famous World Leaders": [
         ["Abraham Lincoln is most famous for _____________.", "Working to end slavery in America"],
@@ -326,7 +323,7 @@ QUIZ_ANSWERS = {
         ["Nelson Mandela ___________________ before becoming the first President of democratic South Africa in 1994?", "spent over 20 years in jail"],
         ["Thomas Jefferson wrote which famous US document?", "The Declaration of Independence"],
         ["What was Julius Caesar's motto?", "I came, I saw, I conquered"],
-        ["Who was Margaret Thatcher?", "British Prime Minister"]
+        ["Who was Margaret Thatcher?", "British Prime Minister"],
     ],
     "Greek Mythology": [
         ["Which Greek god is the god of fertility and wine?", "Dionysus"],
@@ -346,7 +343,7 @@ QUIZ_ANSWERS = {
         ["Which Greek god is the lord of the underworld?", "Hades"],
         ["Which Greek god is the personification of death?", "Thanatos"],
         ["Which Greek god is the protector of all waters?", "Poseidon"],
-        ["Which Greek god is the ruler of the Olympian gods?", "Zeus"]
+        ["Which Greek god is the ruler of the Olympian gods?", "Zeus"],
     ],
     "Habitats": [
         ["Animals in the desert have adopted a ___________ lifestyle to survive the heat.", "Nocturnal"],
@@ -366,7 +363,7 @@ QUIZ_ANSWERS = {
         ["Which is a large predator that lives in Coniferous Forests?", "Bear"],
         ["Which of the following is NOT a habitat found on land?", "Coral Reef"],
         ["Which of the following is NOT a habitat?", "Bottle"],
-        ["Which of the following is NOT part of the Ocean landscape?", "Hills"]
+        ["Which of the following is NOT part of the Ocean landscape?", "Hills"],
     ],
     "Heart": [
         ["How many chambers does a human heart have?", "4"],
@@ -388,7 +385,7 @@ QUIZ_ANSWERS = {
         ["Which part of the heart allows blood to flow in only one direction?", "Valve"],
         ["Which vein carries oxygen-rich blood to the heart from the lungs?", "Pulmonary Veins"],
         ["Which ventricle pumps oxygen-rich blood to the body?", "Left ventricle"],
-        ["Which ventricle pumps oxygen-poor blood to the lungs?", "Right ventricle"]
+        ["Which ventricle pumps oxygen-poor blood to the lungs?", "Right ventricle"],
     ],
     "Landforms": [
         ["Bayou, Gully, Marsh and Shoal are examples of what?", "Fluvial landforms"],
@@ -406,7 +403,7 @@ QUIZ_ANSWERS = {
         ["Which of the following is not considered a slope landform?", "Pull apart basin"],
         ["Which of the following is not considered a tectonic landform?", "Sinkhole"],
         ["Which of the following is not considered an Aeolian landform?", "Sound"],
-        ["Which type of rock is not generally a cause for karst typography?", "Granite"]
+        ["Which type of rock is not generally a cause for karst typography?", "Granite"],
     ],
     "Ninth Grade Vocabulary": [
         ["Abstract", "a concept or idea not associated with any specific instance"],
@@ -424,7 +421,7 @@ QUIZ_ANSWERS = {
         ["Parsimony", "extreme care in spending money"],
         ["Recalcitrant", "marked by stubborn resistance to authority"],
         ["Tangible", "possible to be treated as fact"],
-        ["Verbose", "using or containing too many words"]
+        ["Verbose", "using or containing too many words"],
     ],
     "Norse Mythology": [
         ["Baldr was the god of what?", "Beauty, innocence, peace and rebirth"],
@@ -444,7 +441,7 @@ QUIZ_ANSWERS = {
         ["Who was the goddess of prudence?", "Snotra"],
         ["Who was the goddess of the sun?", "Sol"],
         ["Who was the goddess of wisdom?", "Vor"],
-        ["Who was the wife of Thor and goddess of the harvest?", "Sif"]
+        ["Who was the wife of Thor and goddess of the harvest?", "Sif"],
     ],
     "Primates": [
         ["Roughly how many species of primate does the IUCN recognize?", "600"],
@@ -462,7 +459,7 @@ QUIZ_ANSWERS = {
         ["Which of these monkeys is not a new world monkey?", "Macauqe"],
         ["Which of these monkeys is not an old world monkey?", "Marmoset"],
         ["Which primate is easily recognized by their orange fur and very long arms?", "Orangutan"],
-        ["Why do howler monkeys howl?", "Defend their territory"]
+        ["Why do howler monkeys howl?", "Defend their territory"],
     ],
     "Solar System": [
         ["Every object in our solar system revolves around the _______.", "Sun"],
@@ -480,7 +477,7 @@ QUIZ_ANSWERS = {
         ["Which is the smallest planet in the solar system?", "Mercury"],
         ["Which planet is closest to the sun?", "Mercury"],
         ["Which planet is furthest from the sun?", "Neptune"],
-        ["Which two planets are Earth's \"neighbors\"?", "Venus & Mars"]
+        ["Which two planets are Earth's \"neighbors\"?", "Venus & Mars"],
     ],
     "Spelling": [
         ["Which word is spelled correctly?", "Abbreviate"],
@@ -497,7 +494,7 @@ QUIZ_ANSWERS = {
         ["Which word is spelled correctly?", "February"],
         ["Which word is spelled correctly?", "Hygiene"],
         ["Which word is spelled correctly?", "Physique"],
-        ["Which word is spelled correctly?", "Wednesday"]
+        ["Which word is spelled correctly?", "Wednesday"],
     ],
     "State Animals": [
         ["What is the state animal of California?", "Grizzly Bear"],
@@ -549,7 +546,7 @@ QUIZ_ANSWERS = {
         ["What is the state marine mammal of Massachusetts?", "Right Whale"],
         ["What is the state small mammal of Texas?", "Nine-Banded Armadillo"],
         ["What is the state water mammal of Mississippi?", "Dolphin"],
-        ["What is the state wild animal of Tennessee?", "Raccoon"]
+        ["What is the state wild animal of Tennessee?", "Raccoon"],
     ],
     "State Birds": [
         ["What is the state bird of Alabama?", "Yellowhammer"],
@@ -601,7 +598,7 @@ QUIZ_ANSWERS = {
         ["What is the state bird of Washington?", "American Goldfinch"],
         ["What is the state bird of West Virginia?", "Cardinal"],
         ["What is the state bird of Wisconsin?", "American Robin"],
-        ["What is the state bird of Wyoming?", "Western Meadowlark"]
+        ["What is the state bird of Wyoming?", "Western Meadowlark"],
     ],
     "State Capitals": [
         ["What is the capital of Alabama?", "Montgomery"],
@@ -653,7 +650,7 @@ QUIZ_ANSWERS = {
         ["What is the capital of Washington?", "Olympia"],
         ["What is the capital of West Virginia?", "Charleston"],
         ["What is the capital of Wisconsin?", "Madison"],
-        ["What is the capital of Wyoming?", "Chenyenne"]
+        ["What is the capital of Wyoming?", "Chenyenne"],
     ],
     "State Nicknames": [
         ["Which state is known as the \"Aloha State?\"", "Hawaii"],
@@ -675,7 +672,7 @@ QUIZ_ANSWERS = {
         ["Which state is known as the \"Prairie State?\"", "Illinois"],
         ["Which state is known as the \"Silver State?\"", "Nevada"],
         ["Which state is known as the \"Sunflower State?\"", "Kansas"],
-        ["Which state is known as the \"Volunteer State?\"", "Tennessee"]
+        ["Which state is known as the \"Volunteer State?\"", "Tennessee"],
     ],
     "Tenth Grade Vocabulary": [
         ["Adjunct", "something attached to but holding an inferior position"],
@@ -692,7 +689,7 @@ QUIZ_ANSWERS = {
         ["Malicious", "wishing evil or harm upon others"],
         ["Phonetic", "related to the sounds in a language"],
         ["Segregate", "separating into different groups"],
-        ["Soliloquy", "the act of talking to oneself or a dramatic monologue"]
+        ["Soliloquy", "the act of talking to oneself or a dramatic monologue"],
     ],
     "Twelfth Grade Vocabulary": [
         ["Antithesis", "the direct opposite or contrast to a previously given assertion"],
@@ -710,7 +707,7 @@ QUIZ_ANSWERS = {
         ["Jovial", "happy, cheery"],
         ["Loquacious", "talkative, chatty"],
         ["Peruse", "reading with careful attention"],
-        ["Sensuous", "all senses, dealing w/ all senses"]
+        ["Sensuous", "all senses, dealing w/ all senses"],
     ],
     "Weather": [
         ["A waterspout is actually a weak ______ that forms over water.", "Tornado"],
@@ -731,7 +728,7 @@ QUIZ_ANSWERS = {
         ["What type of cloud usually looks white and puffy?", "Cumulus"],
         ["Where do tornadoes come from?", "Thunderstorms"],
         ["Which of the following is not a characteristic of a hurricane?", "Forms over mountains"],
-        ["Which of the following is NOT needed to cause a blizzard?", "Rotating storm clouds"]
+        ["Which of the following is NOT needed to cause a blizzard?", "Rotating storm clouds"],
     ],
     "World Capitals": [
         ["What is the capital of Argentina?", "Buenos Aires"],
@@ -754,118 +751,90 @@ QUIZ_ANSWERS = {
         ["What is the capital of Italy?", "Rome"],
         ["What is the capital of Japan?", "Tokyo"],
         ["What is the capital of Mexico?", "Mexico City"],
-        ["What is the capital of The Bahamas?", "Nassau"]
-    ]
+        ["What is the capital of The Bahamas?", "Nassau"],
+    ],
 }
 
-def getSelectedText():
-    pyautogui.hotkey("ctrl", "c")
-    time.sleep(0.01)
-    return pyperclip.paste()
+'''
+    IMPORTS
+'''
+import tkinter as tk
+from tkinter import ttk
+import pyperclip, threading, pyautogui
+from fuzzywuzzy import fuzz
 
-class mainWindowWidget(QMainWindow):
-    updateSignal = pyqtSignal(str)
+'''
+    THE GUI
+'''
+w = tk.Tk()
+w.title("Wizard101 Trivia Helper - Gabe Millikan")
+w.columnconfigure(0, weight = 1)
+
+# top
+top_frame = tk.Frame()
+
+description = tk.Label(master = top_frame, text = "This program reads from your clipboard. Copy the question to get the answer.", justify = "left")
+description.grid(row = 0, sticky = "w")
+
+autocopy = ttk.Checkbutton(master = top_frame, text = "Automatically copy selected text.", takefocus=0)
+autocopy.grid(row = 1, sticky = "w")
+while "selected" not in autocopy.state():
+    autocopy.invoke()
+
+top_frame.grid(column = 0, sticky = "w", padx = 8, pady = 8)
+
+# sep
+separator = ttk.Separator(w, orient='horizontal')
+separator.grid(column = 0, row = 1, sticky = "ew")
+
+# bottom
+output = tk.Label(w, text="Nothing was found.", justify = tk.LEFT)
+output.grid(column = 0, row = 2, sticky = tk.W, padx = 8, pady = 8)
+
+'''
+    THE AUTO-COPY AND SEARCH ALGO
+'''
+def periodic(ms = 1000):
+    def inner(func):
+        def f():
+            w.after(ms, f)
+            func()
+        f()
     
-    def __init__(self, *args, **kwargs):
-        super(mainWindowWidget, self).__init__(*args, **kwargs)
-        self.setWindowTitle("Trivia!")
-        self.setWindowFlags(Qt.WindowStaysOnTopHint)
-        
-        self.auto_copy = QCheckBox("Auto Spam Ctrl+C", self, objectName = "auto_copy")
-        self.auto_copy.move(4, 0)
-        self.auto_copy.setFixedSize(200, 20)
-        self.auto_copy.setFont(FONT)
-        
-        self.searching = QLabel("searching for: \"\"", self, objectName = "searching")
-        self.searching.move(0, 20)
-        self.searching.setFixedSize(200, 20)
-        self.searching.setFont(FONT) 
-        
-        self.count = QLabel("possible matches: 0", self, objectName = "count")
-        self.count.move(0, 40)
-        self.count.setFixedSize(200, 20)
-        self.count.setFont(FONT) 
-        
-        self.quiz = QLabel("most likely quiz: idk", self, objectName = "quiz")
-        self.quiz.move(0, 60)
-        self.quiz.setFixedSize(200, 20)
-        self.quiz.setFont(FONT)
-        
-        self.answer_label = QLabel("possible answers:", self, objectName = "answer_label")
-        self.answer_label.move(0, 80)
-        self.answer_label.setFixedSize(200, 20)
-        self.answer_label.setFont(FONT)
-        
-        self.answer = QPlainTextEdit("idk", self, objectName = "answer")
-        self.answer.move(0, 100)
-        self.answer.setFixedSize(200, 20)
-        self.answer.setFont(FONT)
-        
-        
-        minx = 200
-        miny = 20 * 6 + 15
-        self.setMinimumSize(minx, miny)
-        self.resize(1000, miny + 40)
-        
-        self.updateSignal.connect(self.update)
+    return inner
     
-    def resizeEvent(self, event):
-        self.searching.setFixedSize(self.width(), 20)
-        self.count.setFixedSize(self.width(), 20)
-        self.quiz.setFixedSize(self.width(), 20)
-        self.answer_label.setFixedSize(self.width(), 20)
-        self.answer.setFixedSize(self.width(), self.height() - 100)
+@periodic(ms = 50)
+def copytext():
+    if "selected" not in autocopy.state():
+        return
     
-    def update(self, txt):
-        txt = ' '.join(txt.rstrip().split())
-        self.searching.setText("searching for: \"%s\"" % txt)
-        
-        answers = []
-        quizzes = []
-        for quiz, questions in QUIZ_ANSWERS.items():
-            c = 0
-            for [question, answer] in questions:
-                if txt.lower() in question.lower():
-                    c += 1
-                    answers.append(answer)
-            if c > 0:
-                quizzes.append(quiz)
+    threading.Thread(target = pyautogui.hotkey, args = ("ctrl", "c")).start()
+
+def findmatches(s):
+    results = []
+    for (quiz, questions) in QUIZZES.items():
+        for [q, ans] in questions:
+            results.append([fuzz.ratio(q, s) / 100.0, quiz, ans])
+                
             
-        self.count.setText("possible matches: %d" % len(answers))
-        self.quiz.setText("most likely quiz: %s" % (quizzes[0] if len(quizzes) > 0 else "idk"))
-        
-        out = "idk"
-        if len(answers) == 1:
-            out = answers[0]
-        elif len(answers) > 1:
-            out = ",\n".join(answers)
+    return results
 
-        self.answer.setPlainText(out)
-
-
-if __name__ == "__main__":
-    app = QApplication([])
+last_search_string = ""
+@periodic(ms = 10)
+def updateOutput():
+    global last_search_string
     
-    window = mainWindowWidget()
-    window.show()
-    dead = False
+    ss = pyperclip.paste()
+    if last_search_string == ss:
+        return
+    last_search_string = ss
     
-    def q():
-        global dead
-        while not dead:
-            try:
-                if window.auto_copy.isChecked():
-                    window.updateSignal.emit(getSelectedText())
-                else:
-                    window.updateSignal.emit(pyperclip.paste())
-            except:
-                pass
-            time.sleep(0.1)
-        app.quit()
-        
-    threading.Thread(target = q).start()
-    try:
-        app.exec_()
-    except:
-        pass
-    dead = True
+    matches = findmatches(ss)
+    matches.sort(reverse = True)
+    output["text"] = "\n".join(f"{score*100:.0f}% - [{quiz}] - {answer}" for [score, quiz, answer] in matches[:3])
+
+
+# RUN
+w.resizable(False, False)
+w.attributes('-topmost',True)
+w.mainloop()
