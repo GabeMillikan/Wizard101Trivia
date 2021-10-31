@@ -3,31 +3,20 @@ Easily answer wizard101 trivia questions
 
 <img alt="preview" src="https://i.imgur.com/GBFuN5m.mp4">
 
-# Notes
-- I wrote this program in October, and am only publishing it on GitHub now in december
-- If you disable the "Auto Spam Ctrl+C" option (see section below), then this should theoretically be impossible to detect by the Kingsisle website. Because from their point of view, you're simply copying the question, then as far as they know probably googling it, then clicking the answer.
-- I have only tested this program on windows 10, but I believe that it should work on older windows versions and probably on MacOS or Linux distributions.
-- If you want to add support for a new quiz, then look at the code around line 12 where it says `QUIZ_ANSWERS = {`, and hopefully you can notice that there is a pattern. You're welcome to expand the list.
-
-# What is "Auto Spam Ctrl+C"
-- It's exactly what it says, it will press the "Control" and "C" keys every 0.1 seconds.
-- This means that it will automatically copy any text that you highlight, which is nice because then you don't have to do it yourself.
-- The drawback is that Kingsisle might notice that you press those keys every exactly 0.1 seconds, which might seem a bit suspicious considering that most people don't constantly spam Ctrl+C unless they're a robot. 
-
 # How to Install
-1. Download python from https://www.python.org/downloads/ (it's the big yellow button)
-2. Install it, if you're on windows, make sure to check this box at the bottom of the first screen of the installer:
-    - <img alt="Add Python to PATH" src="https://i.imgur.com/hLaUKge.png">
-3. If any of the steps after this don't work, you might need to restart your computer and start back at step 4
-4. Open a command prompt or terminal (it is important to open it AFTER step 2 is complete)
+1. Download python from https://www.python.org/downloads/ (it's the big yellow button). Python is the programming language used in this project.
+2. Install it. You shouldn't have to change any options, just keep clicking next. 
+3. Open a command prompt or terminal (it is important that you wait to open the terminal until AFTER step 2 is fully complete).
     - How to do it on Windows: https://www.youtube.com/watch?v=uE9WgNr3OjM
     - How to do it on MacOS: https://www.youtube.com/watch?v=zw7Nd67_aFw
-    - I imagine if you're on Linux you already know how (or just google it for your specific version)
-5. For each bullet point, copy/paste it into the console, then press enter. Wait for it to finish, then paste the next one.
-    - python -m pip install pyperclip
-    - python -m pip install pyautogui
-    - python -m pip install PyQt5
-6. Download the file in this github page and save it as "trivia.pyw"
+    - If you're on Linux then you should already know how.
+4. Copy/paste this into the terminal, press enter, and wait for it to complete. Only run the command for your operating system.
+    - MacOS and Linux: `python -m pip install pyautogui`
+    - Windows: `py -m pip install pyautogui`
+5. Exact same as step 4, but this command:
+    - MacOS and Linux: `python -m pip install pyperclip`
+    - Windows: `py -m pip install pyperclip`
+6. 
     - Here's a direct link to the code: https://raw.githubusercontent.com/GabeMillikan/Wizard101Trivia/main/trivia.pyw
     - You may just right click and press "Save" once you're at the above link
     - Otherwise, create a file named "trivia.pyw" on your computer, then edit it with a text editor (ex: notepad) and copy/paste the whole code into it
