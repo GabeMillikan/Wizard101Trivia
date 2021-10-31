@@ -3,34 +3,37 @@ Easily answer wizard101 trivia questions
 
 <img alt="preview" src="https://i.imgur.com/GBFuN5m.mp4">
 
-# How to Install
+# How to Use
+1. Download the program (detailed in the next section)
+2. Go to your favorite Wizard101 trivia (28 of them are supported, see the bottom of this page)
+3. Copy the question (or enable "Automatically copy selected text", which does this step automatically)
+4. Select the best answer provided
+5. Collect free crowns
+6. Repeat
+
+# How to Download
 1. Download python from https://www.python.org/downloads/ (it's the big yellow button). Python is the programming language used in this project.
-2. Install it. You shouldn't have to change any options, just keep clicking next. 
+2. Install it. You shouldn't have to change any options, just click "Install now". 
 3. Open a command prompt or terminal (it is important that you wait to open the terminal until AFTER step 2 is fully complete).
     - How to do it on Windows: https://www.youtube.com/watch?v=uE9WgNr3OjM
     - How to do it on MacOS: https://www.youtube.com/watch?v=zw7Nd67_aFw
     - If you're on Linux then you should already know how.
-4. Copy/paste this into the terminal, press enter, and wait for it to complete. Only run the command for your operating system.
+4. Copy/paste this into the terminal, press enter, and wait for it to complete (you should see a lot of text scroll by). Don't worry if you see any yellow warnings, just ignore them. Only run the command for your operating system.
     - MacOS and Linux: `python -m pip install pyautogui`
-    - Windows: `py -m pip install pyautogui`
+    - Windows: `py -m pip install pyautogui
 5. Exact same as step 4, but this command:
-    - MacOS and Linux: `python -m pip install pyperclip`
-    - Windows: `py -m pip install pyperclip`
-6. 
-    - Here's a direct link to the code: https://raw.githubusercontent.com/GabeMillikan/Wizard101Trivia/main/trivia.pyw
-    - You may just right click and press "Save" once you're at the above link
-    - Otherwise, create a file named "trivia.pyw" on your computer, then edit it with a text editor (ex: notepad) and copy/paste the whole code into it
-    - Be careful to make sure that the file is called "trivia.pyw" and not "trivia.pyw.txt" or "trivia.pyw.py"
-7. Double click the file, or open it with python (which was installed in step 2)
-    - If the window does not open, or something does not work, feel free to message me.
+    - MacOS and Linux: `python -m pip install fuzzywuzzy`
+    - Windows: `py -m pip install fuzzywuzzy`
+6. Now you'll need to download this project itself. Follow these steps
+    - Go to this link: https://raw.githubusercontent.com/GabeMillikan/Wizard101Trivia/main/trivia.pyw
+    - Right click anywhere and choose "Save As" (or just press ctrl-s)
+    - Save it to your computer as "trivia.pyw"
+    - You can call it anything you want, it just has to end with ".pyw". A common mistake would be to accidentally call the file "trivia.pyw.txt", so if the program doesn't work, that is probably why.
+7. Double click the file to run it. You might have to choose to open it with Python which was installed in step 2.
+    - You should see the window at this point! If you don't, then something is wrong and feel free to message me.
 
-# How to Use
-1. Run the program
-2. Go to your favorite Wizard101 trivia from the supported list below
-3. Copy the question (or enable Auto Spam Ctrl+C and just highlight it)
-4. Select the answer provided
-
-# Supported Quizzes (as of December 19, 2020)
+# Supported Quizzes (as of October 31, 2021)
+## Some quizzes might be missing an answer or two, I would love it if you could message me what they are and what the answer was so I can fix it!
  * Supported very well:
      - World Capitals
      - Weather
@@ -61,4 +64,3 @@ Easily answer wizard101 trivia questions
      - Spelling & Advanced Spelling (because all the questions are identical)
      - 9th, 10th, 11th and 12th Grade Vocabulary (because the questions are very short; 1 word)
      - English Punctuation (some questions are identical)
-     
