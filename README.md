@@ -1,5 +1,5 @@
 # Wizard101Trivia
-Easily answer wizard101 trivia questions
+Easily answer wizard101 trivia questions.
 
 <img alt="preview" src="https://github.com/GabeMillikan/Wizard101Trivia/blob/main/preview.gif">
 
@@ -64,3 +64,10 @@ Unlikely, but I won't make any guarantees. From Kingsisle's perspective, you're 
      - Spelling & Advanced Spelling (because all the questions are identical)
      - 9th, 10th, 11th and 12th Grade Vocabulary (because the questions are very short; 1 word)
      - English Punctuation (some questions are identical)
+
+# Tags for SEO
+- Wizard 101
+- Automatic Trivia Bot
+- Trivia Answers
+- Trivia Solutions
+- Free Crowns Bot
