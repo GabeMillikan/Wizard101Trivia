@@ -21,7 +21,7 @@ import threading
 '''
 QUIZ_DATA = None # None = not ready, False = download failed
 def get_quiz_data():
-    global QUIZ_DATA, QUIZ_DOWNLOAD_FAILED
+    global QUIZ_DATA
     
     # first things first, find our local copy
     current_file_data = None
