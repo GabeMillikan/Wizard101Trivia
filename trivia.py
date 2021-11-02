@@ -30,21 +30,22 @@ def get_quiz_data():
         with open(filepath, "r") as f:
             current_file_data = json.load(f)
         
-        assert "quizzes" in current_file_data
+        assert "quiz_data" in current_file_data
         assert "version" in current_file_data
     except:
         # if anything goes wrong, then the file doesn't exist or is invalid
-        pass
+        current_file_data = None
     
     # set QUIZ_DATA to current information
     # so the program can get to work ASAP
     if current_file_data:
-        QUIZ_DATA = current_file_data["quizzes"]
+        QUIZ_DATA = current_file_data["quiz_data"]
     
     # get remote version
-    remote_url = "https://raw.githubusercontent.com/GabeMillikan/Wizard101Trivia/main/"
+    remote_url = "https://raw.githubusercontent.com/GabeMillikan/Wizard101Trivia/issue-1-remote-quizdata/"
     try:
         remote_version = urllib.request.urlopen(remote_url + "quiz_data/version.txt").read()
+        remote_version = remote_version.decode().strip()
     except:
         if not current_file_data:
             QUIZ_DATA = False # download failed
