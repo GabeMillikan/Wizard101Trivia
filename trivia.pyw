@@ -42,7 +42,7 @@ def get_quiz_data():
         QUIZ_DATA = current_file_data["quiz_data"]
     
     # get remote version
-    remote_url = "https://raw.githubusercontent.com/GabeMillikan/Wizard101Trivia/"
+    remote_url = "https://raw.githubusercontent.com/GabeMillikan/Wizard101Trivia/main/"
     try:
         remote_version = urllib.request.urlopen(remote_url + "quiz_data/version.txt").read()
         remote_version = remote_version.decode().strip()
