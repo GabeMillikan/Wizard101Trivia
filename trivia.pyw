@@ -768,7 +768,6 @@ except:
     pass
 
 import tkinter as tk
-from tkinter import ttk
 import pyperclip, threading, pyautogui
 from fuzzywuzzy import fuzz
 
@@ -785,13 +784,13 @@ top_frame = tk.Frame()
 description = tk.Label(master = top_frame, text = "This program reads from your clipboard. Copy the question to get the answer.", justify = "left")
 description.grid(row = 0, sticky = "w")
 
-autocopy = ttk.Checkbutton(master = top_frame, text = "Automatically copy selected text.", takefocus = 0)
+autocopy = tk.ttk.Checkbutton(master = top_frame, text = "Automatically copy selected text.", takefocus = 0)
 autocopy.grid(row = 1, sticky = "w")
 
 top_frame.grid(column = 0, sticky = "w", padx = 8, pady = 8)
 
 # bottom
-separator = ttk.Separator(window, orient = 'horizontal')
+separator = tk.ttk.Separator(window, orient = 'horizontal')
 separator.grid(column = 0, row = 1, sticky = "ew")
 
 output = tk.Label(window, text = "Nothing was found.", justify = "left")
