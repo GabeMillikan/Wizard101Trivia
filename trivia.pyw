@@ -759,7 +759,8 @@ QUIZZES = {
     IMPORTS
 '''
 
-# attempt to fix pyautogui DPI fuckery that messes with the buttons
+# temporary fix for the bug described here: https://bugs.python.org/issue45681
+# a permananet fix has already been issued but was not included in python 3.10 for some reason
 try:
     import ctypes
     ctypes.windll.shcore.SetProcessDpiAwareness(ctypes.c_int(0))
@@ -774,9 +775,9 @@ from fuzzywuzzy import fuzz
 '''
     THE GUI
 '''
-w = tk.Tk()
-w.title("Wizard101 Trivia Helper - Gabe Millikan")
-w.columnconfigure(0, weight = 1)
+window = tk.Tk()
+window.title("github.com/GabeMillikan/Wizard101Trivia")
+window.columnconfigure(0, weight = 1)
 
 # top
 top_frame = tk.Frame()
@@ -784,18 +785,17 @@ top_frame = tk.Frame()
 description = tk.Label(master = top_frame, text = "This program reads from your clipboard. Copy the question to get the answer.", justify = "left")
 description.grid(row = 0, sticky = "w")
 
-autocopy = ttk.Checkbutton(master = top_frame, text = "Automatically copy selected text.", takefocus=0)
+autocopy = ttk.Checkbutton(master = top_frame, text = "Automatically copy selected text.", takefocus = 0)
 autocopy.grid(row = 1, sticky = "w")
 
 top_frame.grid(column = 0, sticky = "w", padx = 8, pady = 8)
 
-# sep
-separator = ttk.Separator(w, orient='horizontal')
+# bottom
+separator = ttk.Separator(window, orient = 'horizontal')
 separator.grid(column = 0, row = 1, sticky = "ew")
 
-# bottom
-output = tk.Label(w, text="Nothing was found.", justify = tk.LEFT)
-output.grid(column = 0, row = 2, sticky = tk.W, padx = 8, pady = 8)
+output = tk.Label(window, text = "Nothing was found.", justify = "left")
+output.grid(column = 0, row = 2, sticky = "w", padx = 8, pady = 8)
 
 '''
     THE AUTO-COPY AND SEARCH ALGO
@@ -808,47 +808,77 @@ while "selected" not in autocopy.state():
 # then turn it off
 autocopy.invoke()
 
-def periodic(ms = 1000):
-    def inner(func):
-        def f():
-            w.after(ms, f)
-            func()
-        f()
+# calls a function at a set interval (immediate initial call) 
+def periodic(milliseconds = 1000):
+    def decorator(user_func):
     
-    return inner
+        def looper():
+            window.after(milliseconds, looper)
+            user_func()
+            
+        looper()
+    
+    return decorator
 
-@periodic(ms = 50)
-def copytext():
+# presses ctrl+c if autocopy is enableed
+@periodic(milliseconds = 50)
+def attempt_autocopy():
     if "selected" not in autocopy.state():
         return
     
-    threading.Thread(target = pyautogui.hotkey, args = ("ctrl", "c")).start()
+    # needs to happen in a separate thread because pyautogui 
+    # has a bunch of delays that mess up the Tk event loop
+    threading.Thread(
+        target = pyautogui.hotkey,
+        args = ("ctrl", "c")
+    ).start()
 
-def findmatches(s):
-    results = []
-    for (quiz, questions) in QUIZZES.items():
-        for [q, ans] in questions:
-            results.append([fuzz.ratio(q, s) / 100.0, quiz, ans])
-                
+# returns a list of [score, quiz_name, answer] pairs based on a given query
+def find_matching_question(query_question):
+    
+    results = [] # stores [score, quiz_name, answer]
+    
+    for (quiz_name, quiz_questions) in QUIZZES.items():
+        for [quiz_question, answer] in quiz_questions:
+            score = fuzz.ratio(query_question, quiz_question) / 100.0
             
+            # don't add unless better than the current worst result
+            if len(results) < 3 or score > results[-1][0]:
+            
+                result = [score, quiz_name, answer]
+                
+                # find insertion point, right before the first one with a lower score
+                found_insertion = False
+                for i in range(len(results)):
+                    if results[i][0] < score:
+                        found_insertion = True
+                        results.insert(i, result)
+                        break
+                
+                if not found_insertion:
+                    results.append(result)
+                
+                results = results[:3] # truncate fourth item
+    
     return results
 
-last_search_string = ""
-@periodic(ms = 10)
-def updateOutput():
-    global last_search_string
+# main operation, reads from clipboard and places the output in the window
+last_searched_question = ""
+@periodic(milliseconds = 10)
+def update():
+    global last_searched_question
     
-    ss = pyperclip.paste()
-    if last_search_string == ss:
+    pasted = pyperclip.paste()
+    if last_searched_question == pasted:
         return
-    last_search_string = ss
     
-    matches = findmatches(ss)
-    matches.sort(reverse = True)
-    output["text"] = "\n".join(f"{score*100:.0f}% - [{quiz}] - {answer}" for [score, quiz, answer] in matches[:3])
+    last_searched_question = pasted
+    
+    results = find_matching_question(pasted)
+    output["text"] = "\n".join(f"{score*100:.0f}% - [{quiz_name}] - {answer}" for [score, quiz_name, answer] in results)
 
 
 # RUN
-w.resizable(False, False)
-w.attributes('-topmost',True)
-w.mainloop()
+window.resizable(False, False)
+window.attributes('-topmost',True)
+window.mainloop()
