@@ -1,11 +1,11 @@
 # Wizard101Trivia
-Easily answer wizard101 trivia questions. 42 different trivias are currently supported (see the bottom of this page).
+Easily answer wizard101 trivia questions. 42 different trivias are currently supported (see [Supported Quizzes](#supported-quizzes)).
 
 <img alt="preview" src="https://github.com/GabeMillikan/Wizard101Trivia/blob/main/preview.gif">
 
 # How to Use
 1. Download the program (detailed in the next section)
-2. Go to your favorite Wizard101 trivia (must be on the list at bottom of this page)
+2. Go to your favorite Wizard101 trivia (see [Supported Quizzes](#supported-quizzes))
 3. Copy the question (or enable "Automatically copy selected text", which does this step automatically)
 4. Select the best answer provided
 5. Collect free crowns
@@ -32,8 +32,8 @@ Easily answer wizard101 trivia questions. 42 different trivias are currently sup
 # Will I get banned?
 Unlikely, but I won't make any guarantees. From Kingsisle's perspective, you're just pressing ctrl-c, then choosing an answer. It will be difficult for them to distinguish between this program and just Googling the answers. **If you enable "Automatically copy selected text", then the program will press ctrl-c 20 times every second**. It's entirely possible for KI to detect this, so I give you fair warning. I don't think that they *will* do anything about it though, since it's probably not worth their time. If you want to be extra cautious, then disable the option and just manually copy the question yourself.
 
-# Supported Quizzes (as of October 31, 2021)
-## There may be some missing answers, please message me and let me know so I can add them!
+#Supported Quizzes
+##There may be some missing answers, please message me and let me know so I can add them!
 - Advanced Spelling
 - American Presidents
 - Ancient Egypt
