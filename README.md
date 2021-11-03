@@ -1,5 +1,5 @@
 # Wizard101Trivia
-Easily answer wizard101 trivia questions
+Easily answer wizard101 trivia questions.
 
 <img alt="preview" src="https://github.com/GabeMillikan/Wizard101Trivia/blob/main/preview.gif">
 
@@ -34,45 +34,52 @@ Unlikely, but I won't make any guarantees. From Kingsisle's perspective, you're 
 
 # Supported Quizzes (as of October 31, 2021)
 ## There may be some missing answers, please message me and let me know so I can add them!
-    - Advanced Spelling
-    - American Presidents
-    - Ancient Egypt
-    - Apollo Missions
-    - Big Cats
-    - Book Quotes
-    - Chemical Elements
-    - Constellations
-    - Dinosaur
-    - Early American History
-    - Eleventh Grade Vocabulary
-    - English Punctuation
-    - Famous Authors
-    - Famous Poets
-    - Famous World Leaders
-    - Greek Mythology
-    - Habitats
-    - Heart
-    - Landforms
-    - Ninth Grade Vocabulary
-    - Norse Mythology
-    - Pirate101 Adventure
-    - Primates
-    - Solar System
-    - Spelling
-    - State Animals
-    - State Birds
-    - State Capitals
-    - State Nicknames
-    - Tenth Grade Vocabulary
-    - Twelfth Grade Vocabulary
-    - Weather
-    - Wizard101 Adventuring
-    - Wizard101 Conjuring
-    - Wizard101 Magical
-    - Wizard101 Marleybone
-    - Wizard101 Mystical
-    - Wizard101 Spellbinding
-    - Wizard101 Spells
-    - Wizard101 Wizard City
-    - Wizard101 Zafaria
-    - World Capitals
+- Advanced Spelling
+- American Presidents
+- Ancient Egypt
+- Apollo Missions
+- Big Cats
+- Book Quotes
+- Chemical Elements
+- Constellations
+- Dinosaur
+- Early American History
+- Eleventh Grade Vocabulary
+- English Punctuation
+- Famous Authors
+- Famous Poets
+- Famous World Leaders
+- Greek Mythology
+- Habitats
+- Heart
+- Landforms
+- Ninth Grade Vocabulary
+- Norse Mythology
+- Pirate101 Adventure
+- Primates
+- Solar System
+- Spelling
+- State Animals
+- State Birds
+- State Capitals
+- State Nicknames
+- Tenth Grade Vocabulary
+- Twelfth Grade Vocabulary
+- Weather
+- Wizard101 Adventuring
+- Wizard101 Conjuring
+- Wizard101 Magical
+- Wizard101 Marleybone
+- Wizard101 Mystical
+- Wizard101 Spellbinding
+- Wizard101 Spells
+- Wizard101 Wizard City
+- Wizard101 Zafaria
+- World Capitals
+
+# Tags for SEO
+- Wizard 101
+- Automatic Trivia Bot
+- Trivia Answers
+- Trivia Solutions
+- Free Crowns Bot
