@@ -1,11 +1,11 @@
 # Wizard101Trivia
-Easily answer wizard101 trivia questions.
+Easily answer wizard101 trivia questions. 42 different trivias are currently supported (see the bottom of this page).
 
 <img alt="preview" src="https://github.com/GabeMillikan/Wizard101Trivia/blob/main/preview.gif">
 
 # How to Use
 1. Download the program (detailed in the next section)
-2. Go to your favorite Wizard101 trivia (28 of them are supported, see the bottom of this page)
+2. Go to your favorite Wizard101 trivia (must be on the list at bottom of this page)
 3. Copy the question (or enable "Automatically copy selected text", which does this step automatically)
 4. Select the best answer provided
 5. Collect free crowns
