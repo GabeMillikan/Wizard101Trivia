@@ -19,7 +19,7 @@ Easily answer wizard101 trivia questions. 42 different trivias are currently sup
     - How to do it on MacOS: https://www.youtube.com/watch?v=zw7Nd67_aFw
     - If you're on Linux then you should already know how.
 4. Copy/paste this into the terminal, press enter, and wait for it to complete (you should see a lot of text scroll by). Don't worry if you see any yellow warnings, just ignore them. Only run the one command for your specific operating system.
-    - MacOS and Linux: `python -m pip install pyautogui fuzzywuzzy`
+    - MacOS and Linux: `python3 -m pip install pyautogui fuzzywuzzy`
     - Windows: `py -m pip install pyautogui fuzzywuzzy`
 5. Now you'll need to download this project itself. Follow these steps
     - Go to this link: https://raw.githubusercontent.com/GabeMillikan/Wizard101Trivia/main/trivia.pyw
